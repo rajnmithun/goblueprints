@@ -27,6 +27,7 @@ func main() {
 	addr := flag.String("addr", ":8080", "The addr of the application")
 	flag.Parse()
 	r := newRoom()
+
 	http.Handle("/", &templateHandler{filename: "chat.html"})
 	http.Handle("/room", r)
 	// get the room going
