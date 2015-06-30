@@ -28,7 +28,7 @@ func main() {
 	flag.Parse()
 	r := newRoom()
 
-	http.Handle("/", &templateHandler{filename: "chat.html"})
+	http.Handle("/", MustAuth(&templateHandler{filename: "chat.html"}))
 	http.Handle("/room", r)
 	// get the room going
 	go r.run()
